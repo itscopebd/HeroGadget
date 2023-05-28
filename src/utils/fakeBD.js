@@ -30,5 +30,18 @@ const getStoreCard=()=>{
     return shoppingCard;
 }
 
+const removeFormDb=id=>{
+    const storedData=localStorage.getItem("shopping-card");
+    if ((storedData)) {
+        const shoppingCart=JSON.parse(storedData);
+        if(id in shoppingCart){
+            delete shoppingCart[id];
+            localStorage.setItem("shopping-card", JSON.stringify(shoppingCart))
+        }
+        
+    }
+}
 
-export {addToBD,getStoreCard};
+const deleteAllCart=()=> localStorage.removeItem("shopping-card");
+
+export {addToBD,getStoreCard,removeFormDb,deleteAllCart};

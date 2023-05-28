@@ -16,6 +16,7 @@ const router=createBrowserRouter([
         path:"/",
         element:<App/>,
         errorElement:<ErrorPage/>,
+        loader: getProductAndData,
         children:[
             {
                 path:"/",
@@ -33,7 +34,8 @@ const router=createBrowserRouter([
             {
                 path:"/cart",
                 element:<Cart></Cart>,
-                loader: getProductAndData
+                loader:getProductAndData,
+                
             }
         ]
     }
